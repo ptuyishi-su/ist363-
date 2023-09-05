@@ -15,11 +15,15 @@ console.log(introduction)
 
 //2. methods
 const menuBtn=document.getElementById("menuBtn");
-const overlay=document.getElementById("overlay")
-console.log(menuBtn)
-
+const overlay=document.getElementById("overlay");
+const closeBtn =document.getElementById("closeBtn");
 //"event name", callback function
 menuBtn.addEventListener("click", function(){
   //console.log("menuBtn has been clicked")
   overlay.classList.add("active")
 });//end of menuBtn click  event 
+
+closeBtn.addEventListener("click", function(){
+  overlay.classList.remove("active");
+}); //end of closeBtn click event 
+
