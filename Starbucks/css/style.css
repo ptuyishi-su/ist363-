@@ -1,22 +1,24 @@
-h1,h2,h3,h4,h5,h6,p,body, ul, li{
+h1, h2, h3, h4, h5, h6, p, body, ul, li {
     margin: 0;
     padding: 0;
     font: inherit;
 }
-ul,li{
-    list-style: none;
+ul, li {
+    list-style: none; /* removes bullets */
 }
-*{
-    box-sizing: border-box;
+* {
+    box-sizing: border-box; /* invert padding */
 }
 :root {
     --starbucks-green: #006241;
     --medium-gray: rgba(0,0,0,.58);
 }
+
 body {
     background-color: yellow;
 }
-.overlay{
+
+.overlay {
     background-color: var(--starbucks-green);
     width: 100vw;
     height: 100vh;
@@ -25,20 +27,23 @@ body {
     left: -100vw;
     z-index: 1000;
     transition-property: all;
-    transition-duration: 1.5s;
+    transition-duration: .5s;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
     padding: 2rem;
-
-
-
 }
-.overlay.active{left: 0
-    ;}
-.logo{
+.overlay.active {
+    left: 0;
+}
+h1 {
+    font-size: 36px;
+    color: var(--starbucks-green);
+}
+.logo {
+    width: 8rem;
     height: auto;
-    width: 100px;
     margin-bottom: 2rem;
     position: relative;
     left: -1rem;
@@ -46,62 +51,64 @@ body {
     transition-property: all;
     transition-delay: .25s;
     transition-duration: .5s;
-
-
 }
 .mobile-nav {
-    padding: 0;
+    /*background-color: yellow;*/
+    /* padding: 1rem; */
 }
 .mobile-nav a {
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial;
     font-size: 2rem;
     font-weight: bold;
     color: white;
-    padding: 1rem, 0;
     display: block;
+    padding: 1rem 0;
+    text-decoration: none;
+    /* background-color: pink; */
 }
-.overlay.active .mobile-nav ul li{
-    left:0;
-    opacity:1 ;
-    
+.mobile-nav ul li {
+    position: relative;
+    left: -1rem;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: .5s;
 }
-.overlay.active .mobile-nav.overlay ul li:nth-child(1){
+.overlay.active .mobile-nav ul li {
+    /* background-color: red; */
+    opacity: 1;
+    left: 0;
+}
+.overlay.active .mobile-nav ul li:nth-child(1) {
     transition-delay: .5s;
-    
-
-} 
-.overlay.active .mobile-nav.overlay ul li:nth-child(2){
+}
+.overlay.active .mobile-nav ul li:nth-child(2) {
     transition-delay: .6s;
-    
-} 
-.overlay.active .mobile-nav.overlay ul li:nth-child(3){
+}
+.overlay.active .mobile-nav ul li:nth-child(3) {
     transition-delay: .7s;
-    
-} 
-.overlay.active .logo{
+}
+.overlay.active .logo {
     left: 0;
     opacity: 1;
-    transition-property: all;
-    transition-duration: .25;
 }
-.btn-ui{
+.btn-ui {
+    background-color: white;
     border: 0;
     padding: 1rem;
 }
-.btn-ui svg{
+.btn-ui svg {
     width: 3rem;
     height: 3rem;
     fill: var(--medium-gray);
 }
 #closeBtn {
     position: absolute;
-    top:1rem;
-    right:1rem;
+    top: 1rem;
+    right: 1rem;
     background-color: transparent;
     border: 1px solid white;
 }
-#closeBtn svg{
+#closeBtn svg {
     fill: white;
 }
 
@@ -114,6 +121,19 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: .5rem;
-    font-family: arial;
+    font-family: Arial;
+    color: black;
+}
+.coffee-price {
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-bottom: .5rem;
+    font-family: Arial;
+    color: gray;
+}
+.coffee-description {
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: Arial;
     color: black;
 }
