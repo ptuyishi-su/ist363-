@@ -13,12 +13,32 @@ const introduction = `Hi, my name is ${myName}, I am ${myAge} years old and I li
 
 //console.log(introduction);
 
-
 // 2. methods
 const menuBtn = document.getElementById("menuBtn");
 const closeBtn = document.getElementById("closeBtn");
 const overlay = document.getElementById("overlay");
+const coffeeList =document.getElementById("coffeeList")
+const ascendingBtn =document.getElementById("ascendingBtn")
+const descendingBtn =document.getElementById("descendingBtn")
 
+function purgeList(){
+    coffeeList.innerHTML=""
+}
+
+function sortList(sortDirection){
+    console.log({sortDirection})
+}
+
+
+ascendingBtn.addEventListener("click", function(){
+    console.log("ascending button has been clicked");
+    purgeList()
+    sortList("ascending")})
+
+descendingBtn.addEventListener("click", function(){
+     console.log("descending button has been clicked");
+     purgeList()
+     sortList("descending")})
 //console.log(menuBtn);
 
 // "event name", callback function
@@ -102,8 +122,22 @@ function buildTextElement(element, className, content) {
     newElement.textContent = content;
     return newElement;
 }
+const sortedCoffees=[...coffees].sort(function(a,b){
+    if (a.title > b.title){
+        return -1;
+    }
+    if (a.title < b.title){
+        return 1;
+    }
+    if (a.title===b.title){
+        return 0;
+    }
 
-coffees.forEach(function(coffee) {
+}); //sort methord ends
+
+//console.log({sortedCoffes});
+
+sortedCoffees.forEach(function(coffee) {
     // 1 . deconstruct the coffee object
     const { title, price, description, image } = coffee;
 
@@ -112,7 +146,7 @@ coffees.forEach(function(coffee) {
     coffeeArticle.classList.add("coffee-item");
 
     const coffeeImage = document.createElement("img");
-    //coffeeImage.src = `images/${image.fileName}`;
+    coffeeImage.src = `images/${image.fileName}`;
     coffeeImage.width = image.width;
     coffeeImage.height = image.height;
     coffeeImage.alt = image.altText;
@@ -134,11 +168,11 @@ coffees.forEach(function(coffee) {
     coffeeDescription.textContent = description;
 
     // 3. append the elements to the parent article
-   // coffeeArticle.appendChild(coffeeImage);
+    coffeeArticle.appendChild(coffeeImage);
     coffeeArticle.appendChild(coffeeTitle);
     coffeeArticle.appendChild(coffeePrice);
     coffeeArticle.appendChild(coffeeDescription);
 
     // 4. append the article to the body
-    document.body.appendChild(coffeeArticle);
+    coffeeList.appendChild(coffeeArticle);
 }); // end of coffees forEach method
