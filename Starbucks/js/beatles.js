@@ -1,62 +1,95 @@
-// 1. learn how to write arrow function
-// old method
-// function calculateAverage(a,b){
-//     const results=(a+b)/2;
-//     return results
+// // 1. learn how to write arrow function
+// // old method
+// // function calculateAverage(a,b){
+// //     const results=(a+b)/2;
+// //     return results
+// // }
+
+// const calculateAverage = (a, b) => {
+//     return (a+b)/2;
+// }
+// console.log(calculateAverage(4,27))
+
+// const addTen =(num)=>{
+//     return num+10;
 // }
 
-const calculateAverage = (a, b) => {
-    return (a+b)/2;
-}
-console.log(calculateAverage(4,27))
-
-const addTen =(num)=>{
-    return num+10;
-}
-
-console.log(addTen(10))
+// console.log(addTen(10))
 
 
-// 2. review forEach array method
-// const beatles=["Paul", "George", "Ringo", "John"];
-// //console.log(beatles)
+// // 2. review forEach array method
+// // const beatles=["Paul", "George", "Ringo", "John"];
+// // //console.log(beatles)
 
-// // beatles.forEach((beatle) => {
-//     // console.log({beatle})
-// // });
+// // // beatles.forEach((beatle) => {
+// //     // console.log({beatle})
+// // // });
 
-// // review sort Array methods
-// // beatles.sort();
-// // console.log({beatles});
-// const sortedBeatles=[...beatles].sort((a,b) =>{
-//     if (a < b) {
-//         return -1
+// // // review sort Array methods
+// // // beatles.sort();
+// // // console.log({beatles});
+// // const sortedBeatles=[...beatles].sort((a,b) =>{
+// //     if (a < b) {
+// //         return -1
+// //     }
+// // })
+// // console.log({sortedBeatles})
+
+// const beatles =[
+//     {
+//         name: "Paul",
+//         age: 80
+//     },
+//     {
+//         name: "George",
+//         age: 61
+//     },
+//     {
+//         name: "Ringo",
+//         age: 53
+//     },
+//     {
+//         name: "John",
+//         age: 90
 //     }
-// })
-// console.log({sortedBeatles})
+// ];
 
-const beatles =[
+// const sortedBeatlesByAge= [...beatles].sort((a,b) =>{
+//     if (a.age <b.age){
+//         return -1;
+//     }
+// });
+// console.log(sortedBeatlesByAge);
+// console.log("Refereeeee")
+
+const cars= [
     {
-        name: "Paul",
-        age: 80
+        name: "Ford",
+        price: 20000,
     },
     {
-        name: "George",
-        age: 61
+        name: "Chevy",
+        price: 25000,
+    }, 
+    {
+        name: "BMW",
+        price: 30000,
     },
     {
-        name: "Ringo",
-        age: 53
+        name: "Toyota",
+        price: 35000,
     },
     {
-        name: "John",
-        age: 90
-    }
+        name: "Ferrari",
+        price: 45000,
+    },
 ];
+// console.log({cars})
 
-const sortedBeatlesByAge= [...beatles].sort((a,b) =>{
-    if (a.age <b.age){
-        return -1;
-    }
-});
-console.log(sortedBeatlesByAge);
+const filteredCars =cars.filter((car) => {
+    const { price }=car;
+    return cars.price < 25000;
+
+});//end of filter method
+
+console.log({filteredCars})
