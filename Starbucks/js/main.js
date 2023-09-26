@@ -26,7 +26,7 @@ function purgeList(){
 }
 
 function sortList(sortDirection){
-    console.log({sortDirection})
+    console.log({sortDirection});
 }
 
 
@@ -38,7 +38,7 @@ ascendingBtn.addEventListener("click", function(){
 descendingBtn.addEventListener("click", function(){
      console.log("descending button has been clicked");
      purgeList()
-     sortList("descending")})
+     sortList("descending")});
 //console.log(menuBtn);
 
 // "event name", callback function
