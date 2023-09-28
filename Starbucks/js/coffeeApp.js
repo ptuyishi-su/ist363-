@@ -5,35 +5,17 @@ const descendingBtn =document.getElementById("descendingBtn")
 const coffeeList =document.getElementById("coffeeList")
 const priceRanges = document.getElementById("priceRanges")
 
-
-const purgeList = () =>{
-    coffeeList.innerHTML="";
-}  
-const sortListByDirection=(direction, arr)=>{
-    // console.log({direction});
-    const sortedListArr = [...arr].sort((a,b) =>{
-        if (direction=== "ascending"){
-            if (a.title < b.title){
-                return -1;
-            }
-        
-        } else {
-            if (a.title > b.title){
-                return -1;
-            }
-        }
-    });
-    return sortedListArr
-}
-
-function buildTextElement(element, className, content) {
+let filteredCoffees=[...coffees];
+let sortDirection ="ascending";
+//2 functions
+const buildTextElement=(element, className, content) =>{
     const newElement = document.createElement(element);
     newElement.classList.add(className);
     newElement.textContent = content;
     return newElement;
 }
-
 const displayList=(arr)=>{
+    purgeList();
     arr.forEach((coffee)=>{
         // 1 . deconstruct the coffee object
         const { title, price, description, image } = coffee;
@@ -69,20 +51,41 @@ const displayList=(arr)=>{
     }); // end of coffees forEach method
 
 };
+const purgeList = () =>{
+    coffeeList.innerHTML="";
+}  
+const sortListByDirection=(direction, arr)=>{
+    // console.log({direction});
+    sortDirection= "direction";
+    const sortedListArr = [...arr].sort((a,b) =>{
+        if (direction=== "ascending"){
+            if (a.title < b.title){
+                return -1;
+            }
+        
+        } else {
+            if (a.title > b.title){
+                return -1;
+            }
+        }
+    });
+    return sortedListArr
+}
 
-//2. create event listneres for buttons
+
+//3. create event listneres for buttons
 ascendingBtn.addEventListener("click", function() {
     //console.log("ascending button has been clicked");
-    purgeList();
-    const sortedList = sortListByDirection("ascending", coffees);
+    // purgeList();
+    const sortedList = sortListByDirection("ascending", filteredCoffees);
     //console.log({sortedList});
     displayList(sortedList);
 }); 
 
 descendingBtn.addEventListener("click", function(){
      console.log("descending button has been clicked");
-     purgeList();
-     const sortedList =sortListByDirection("descending", coffees)
+    //  purgeList();
+     const sortedList =sortListByDirection("descending", filteredCoffees)
     //  console.log({sortedList});
     displayList(sortedList);
 
@@ -94,23 +97,25 @@ priceRanges.addEventListener("change", (event)=>{
     const selectedRange = event.target.value;
 
     if (selectedRange==="all"){
-        purgeList();
-        displayList(coffees);
+        // purgeList();
+        // displayList(coffees);
+        filteredCoffees = sortListByDirection(sortDirection, [...coffees])
     } else {
         const [minValue, maxValue] = selectedRange.split("-");
         console.log({minValue, maxValue});
-    const filteredCoffees = filterCoffees(minValue,maxValue);
+        const tempFilteredCofees = getFilteredCoffees(minValue,maxValue);
+        filteredCoffees= sortListByDirection(sortDirection, tempFilteredCofees)
 
 
-    purgeList();
-    displayList(filteredCoffees)
+    // purgeList();
     }
+    displayList(filteredCoffees)
 
 });
     
 
-const filterCoffees=(minValue, maxValue) => {
-    const filteredArr =coffees.filter((coffee) => {
+const getFilteredCoffees=(minValue, maxValue) => {
+    const filteredArr =coffees.filter((coffees) => {
         const { price} =coffees;
         return price >= minValue && price <= maxValue;
     });
@@ -118,14 +123,6 @@ const filterCoffees=(minValue, maxValue) => {
     return filteredArr;
 }
 
-displayList(coffees)
 
-//console.log(menuBtn);
-
-//3. purge the coffee list
-
-//4. sort the coffee list by direction
-
-//5. loop through the sorted arrays and display coffee list
-
-
+const sortedStaterList = sortListByDirection(sortDirection, filteredCoffees);
+displayList( sortedStaterList)
