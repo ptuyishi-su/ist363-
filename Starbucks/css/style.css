@@ -326,28 +326,6 @@ body {
   font-family: arial, verdana, sans-serif;
 }
 
-header {
-  background-color: teal;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-header h1 {
-  size: 6rem;
-  color: red;
-  font-family: arial;
-}
-header .btn {
-  background-color: rgb(70, 22, 226);
-  padding: 1rem;
-  border: 0;
-}
-header .btn:hover {
-  background-color: brown;
-}
-header .btn:active {
-  background-color: yellow;
-}
-
 .btn-ui {
   background-color: white;
   border: 0;
@@ -401,6 +379,11 @@ header .btn:active {
   color: black;
 }
 
+.logo {
+  width: 5rem;
+  height: auto;
+}
+
 .overlay {
   background-color: var(--starbucks-green);
   width: 100vw;
@@ -422,63 +405,35 @@ header .btn:active {
   left: 0;
 }
 
-.logo {
-  width: 8rem;
-  height: auto;
-  margin-bottom: 2rem;
-  position: relative;
-  left: -1rem;
-  opacity: 0;
-  transition-property: all;
-  transition-delay: 0.25s;
-  transition-duration: 0.5s;
+.nav-desktop {
+  background-color: lime;
+}
+@media (min-width: 980px) {
+  .nav-desktop {
+    background-color: red;
+  }
 }
 
-.mobile-nav {
-  /*background-color: yellow;*/
-  /* padding: 1rem; */
+header {
+  background-color: teal;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
-
-.mobile-nav a {
-  font-family: Arial;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-  display: block;
-  padding: 1rem 0;
-  text-decoration: none;
-  /* background-color: pink; */
+header h1 {
+  size: 6rem;
+  color: red;
+  font-family: arial;
 }
-
-.mobile-nav ul li {
-  position: relative;
-  left: -1rem;
-  opacity: 0;
-  transition-property: all;
-  transition-duration: 0.5s;
+header .btn {
+  background-color: rgb(70, 22, 226);
+  padding: 1rem;
+  border: 0;
 }
-
-.overlay.active .mobile-nav ul li {
-  /* background-color: red; */
-  opacity: 1;
-  left: 0;
+header .btn:hover {
+  background-color: brown;
 }
-
-.overlay.active .mobile-nav ul li:nth-child(1) {
-  transition-delay: 0.5s;
-}
-
-.overlay.active .mobile-nav ul li:nth-child(2) {
-  transition-delay: 0.6s;
-}
-
-.overlay.active .mobile-nav ul li:nth-child(3) {
-  transition-delay: 0.7s;
-}
-
-.overlay.active .logo {
-  left: 0;
-  opacity: 1;
+header .btn:active {
+  background-color: yellow;
 }
 
 /*# sourceMappingURL=style.css.map */
