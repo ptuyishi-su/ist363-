@@ -1,9 +1,10 @@
 @use "../abstracts/mixins";
 
 header{
-    background-color: teal;
+    background-color: rgb(210, 246, 6);
     padding-top: 1rem;
     padding-bottom: 1rem;
+    border-bottom: 1px solid black;
     h1{
         @include mixins.buildFontProperties(6rem, red, arial);
     }
